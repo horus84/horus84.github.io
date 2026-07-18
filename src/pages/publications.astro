@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+
+const publications = await getCollection('publications');
+
+// Sort by year desc, then rank in-progress first or published first? Chronological is best: year desc
+const sortedPublications = publications.sort((a, b) => {
+  // Sort in-progress to the top, then by year
+  if (a.data.status === 'in-progress' && b.data.status !== 'in-progress') return -1;
+  if (a.data.status !== 'in-progress' && b.data.status === 'in-progress') return 1;
+  return b.data.year - a.data.year;
+});
+---
+
+<Layout 
+  title="Publications | Tanishk Tiwari" 
+  description="Academic publications and research articles by Tanishk Tiwari on LLM inference optimization, Indus script statistical structures, and computational epigraphy."
+>
+  <div class="space-y-8">
+    <!-- Header -->
+    <div class="border-b border-brand-border/40 pb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Academic Output</h1>
+        <p class="text-sm text-brand-muted mt-1">Peer-reviewed publications, preprints, and research works in progress.</p>
+      </div>
+    </div>
+
+    <!-- Publications List -->
+    <div class="space-y-2">
+      {sortedPublications.map(pub => (
+        <PublicationCard publication={pub} />
+      ))}
+    </div>
+  </div>
+</Layout>

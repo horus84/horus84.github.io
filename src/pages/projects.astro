@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = await getCollection('projects');
+---
+
+<Layout 
+  title="Projects | Tanishk Tiwari" 
+  description="Computational tools, repositories, and software implementations by Tanishk Tiwari, including KV-cache inference optimization modules and Indus script sequence analysis suites."
+>
+  <div class="space-y-8">
+    <!-- Header -->
+    <div class="border-b border-brand-border/40 pb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+        <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Projects & Software</h1>
+        <p class="text-sm text-brand-muted mt-1">Open-source implementations, tools, and research artifacts.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider no-print" id="filters-container">
+        <button 
+          class="px-3 py-1.5 rounded border border-brand-rust bg-brand-rust text-white cursor-pointer transition-all duration-150 filter-btn focus:outline-none focus:ring-1 focus:ring-brand-rust" 
+          data-filter="all"
+        >
+          All
+        </button>
+        <button 
+          class="px-3 py-1.5 rounded border border-brand-border bg-white text-stone-600 hover:border-brand-rust cursor-pointer transition-all duration-150 filter-btn focus:outline-none focus:ring-1 focus:ring-brand-rust" 
+          data-filter="llm"
+        >
+          LLM Inference
+        </button>
+        <button 
+          class="px-3 py-1.5 rounded border border-brand-border bg-white text-stone-600 hover:border-brand-rust cursor-pointer transition-all duration-150 filter-btn focus:outline-none focus:ring-1 focus:ring-brand-rust" 
+          data-filter="indus"
+        >
+          Indus Script
+        </button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 gap-6" id="projects-grid">
+      {projects.map(proj => (
+        <div class="project-item" data-track={proj.data.track}>
+          <ProjectCard project={proj} />
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<script>
+  function setupFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    if (filterButtons.length === 0) return;
+
+    filterButtons.forEach(button => {
+      // Remove older listener if any
+      const newBtn = button.cloneNode(true) as HTMLButtonElement;
+      button.parentNode?.replaceChild(newBtn, button);
+
+      newBtn.addEventListener('click', () => {
+        const filter = newBtn.getAttribute('data-filter');
+        if (!filter) return;
+
+        // Update active class on buttons
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-brand-rust', 'text-white', 'border-brand-rust');
+          btn.classList.add('bg-white', 'text-stone-600', 'border-brand-border');
+        });
+
+        newBtn.classList.remove('bg-white', 'text-stone-600', 'border-brand-border');
+        newBtn.classList.add('bg-brand-rust', 'text-white', 'border-brand-rust');
+
+        // Filter items
+        projectItems.forEach(item => {
+          const track = item.getAttribute('data-track');
+          const element = item as HTMLElement;
+          if (filter === 'all' || track === filter) {
+            element.style.display = 'block';
+          } else {
+            element.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // Bind filter triggers on startup and page swaps
+  setupFilters();
+  document.addEventListener('astro:after-swap', setupFilters);
+</script>

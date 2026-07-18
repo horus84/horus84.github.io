@@ -1,0 +1,9 @@
+{
+  "title": "Value-Cache: Efficient KV-Cache Compactor",
+  "description": "An open-source implementation of value-focused KV-cache compression for transformer-based LLMs. Includes inference optimization modules, benchmarks for latency and throughput, and integration wrappers for popular open-weight LLMs (like Llama-3 and Mistral). Tracks and compresses KV slots dynamically at runtime.",
+  "status": "Active Development",
+  "codeLink": "https://github.com/horus84",
+  "tags": ["Python", "PyTorch", "Transformers", "LLM Inference", "CUDA"],
+  "featured": true,
+  "track": "llm"
+}

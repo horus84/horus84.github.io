@@ -1,0 +1,11 @@
+{
+  "title": "Value-Focused KV-Cache Compression for Efficient Long-Context LLM Inference",
+  "authors": "Tanishk Tiwari",
+  "venue": "Prepared for ACL Rolling Review (Work in Progress)",
+  "year": 2026,
+  "status": "in-progress",
+  "summary": "This research introduces a novel, value-focused key-value (KV) cache compression technique aimed at optimizing long-context inference in Large Language Models (LLMs). By dynamically evaluating token importance based on attention weight distribution and value vectors during runtime, we compress the key-value cache up to 4x with negligible loss in perplexity. This significantly increases token throughput and reduces memory footprints for long-context generation tasks.",
+  "codeLink": "https://github.com/horus84",
+  "tags": ["LLM Inference", "KV-Cache", "Model Compression", "Long-Context Models"],
+  "featured": true
+}

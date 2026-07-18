@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="About | Tanishk Tiwari" 
+  description="Learn more about Tanishk Tiwari, an undergraduate AI & ML researcher studying at DSEU. Explore his education, research tracks, and selected recognitions."
+>
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="border-b border-brand-border/40 pb-6">
+      <h1 class="text-3xl font-extrabold text-brand-slate font-lora">About Me</h1>
+      <p class="text-sm text-brand-muted mt-1">Academic biography, research interests, and educational background.</p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Biography & Details -->
+      <div class="md:col-span-2 space-y-6 text-sm text-stone-600 leading-relaxed">
+        <p>
+          I am Tanishk Tiwari, an undergraduate researcher pursuing my Bachelor of Technology (B.Tech) in Artificial Intelligence and Machine Learning at the <strong>Delhi Skill and Entrepreneurship University (DSEU)</strong> in New Delhi, India (expected graduation in 2028).
+        </p>
+        <p>
+          My research focus lies in understanding and optimizing the mathematical and computational constraints of sequences. My work sits at the intersection of two distinct but structurally adjacent streams:
+        </p>
+        <ul class="list-disc pl-5 space-y-3">
+          <li>
+            <strong>Efficient LLM Inference and KV-Cache Compression:</strong> I develop value-focused KV-cache compaction techniques aimed at optimizing long-context autoregressive inference in Large Language Models. This involves exploring adaptive low-rank representations, salient residual preservation, and compressed attention structures using PyTorch and Hugging Face Transformers.
+          </li>
+          <li>
+            <strong>Computational & Statistical Epigraphy:</strong> I apply statistical natural language processing to undeciphered sign systems. In my research, I built and harmonized a corpus of over 6,000 Indus inscriptions to study transitional probabilities, conditional entropy profiles, positional regularities, HMM models, and sequence constraints.
+          </li>
+        </ul>
+        <p>
+          My peer-reviewed paper, <em class="text-brand-slate font-semibold">"Statistical Structure in Indus Sign Sequences"</em>, was published in the <strong>Proceedings of NLP4DH 2026</strong> (co-located with <strong>ACL 2026</strong>) and I presented the work in person in San Diego, CA.
+        </p>
+        <p>
+          Beyond this, I conduct exploratory experiments in **Quantum Machine Learning**, measuring barren-plateau gradients and variational parameter trainability inside mixed-state setups utilizing PennyLane and PyTorch.
+        </p>
+      </div>
+
+      <!-- Sidebar Info Card -->
+      <div class="md:col-span-1 space-y-6">
+        <!-- Education Card -->
+        <div class="border border-brand-border/40 rounded p-6 bg-brand-sand/20 space-y-4 shadow-sm">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-brand-slate border-b border-brand-border/20 pb-2">Education</h3>
+          <div class="space-y-3 text-xs">
+            <div>
+              <p class="font-bold text-stone-800">B.Tech in Artificial Intelligence & Machine Learning</p>
+              <p class="text-stone-600">Delhi Skill & Entrepreneurship University</p>
+              <p class="text-brand-muted">New Delhi, India</p>
+              <p class="text-brand-rust font-semibold mt-1">2024 – 2028 (Expected)</p>
+              <p class="text-stone-700 mt-2"><strong>CGPA:</strong> 8.2 / 10</p>
+            </div>
+            
+            <div class="border-t border-brand-border/10 pt-3">
+              <p class="font-bold text-stone-850 mb-1">Coursework</p>
+              <p class="text-stone-500 leading-normal">Probability & Statistics, Optimization, Data Structures & Algorithms, Machine Learning, and Discrete Mathematics.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Recognitions Card -->
+        <div class="border border-brand-border/40 rounded p-6 bg-white space-y-4 shadow-sm">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-brand-slate border-b border-brand-border/20 pb-2">Recognition</h3>
+          <ul class="space-y-3 text-xs text-stone-600">
+            <li>
+              <span class="font-semibold block text-brand-slate">EACL Mentorship (2026)</span>
+              <span>Selected for the pre-submission mentorship programme of the EACL 2026 Student Research Workshop.</span>
+            </li>
+            <li>
+              <span class="font-semibold block text-brand-slate">Invited Lecture (2025)</span>
+              <span>Invited to deliver the lecture "Reading the Indus Anew" at the Roja Muthiah Research Library, Chennai.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

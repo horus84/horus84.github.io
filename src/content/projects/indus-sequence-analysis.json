@@ -1,0 +1,9 @@
+{
+  "title": "Indus Sign Sequence Analyzer",
+  "description": "A suite of computational linguistics tools designed to analyze positional and transitional probability characteristics in the Indus script corpus. Implements Markov chains, conditional entropy measures, and sequence alignment algorithms specifically adapted for short, undeciphered ancient sign sequences.",
+  "status": "Completed / Published Tooling",
+  "codeLink": "https://github.com/horus84",
+  "tags": ["Python", "SciPy", "Statistical NLP", "Markov Models", "Data Visualization"],
+  "featured": true,
+  "track": "indus"
+}

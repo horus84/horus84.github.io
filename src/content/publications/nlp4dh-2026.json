@@ -1,0 +1,12 @@
+{
+  "title": "Statistical Structure in Indus Sign Sequences",
+  "authors": "Tanishk Tiwari",
+  "venue": "Proceedings of NLP4DH 2026, co-located with ACL 2026",
+  "year": 2026,
+  "status": "published",
+  "summary": "This work explores structural patterns and constraints within the undeciphered Indus script using statistical and computational models. By examining sign transitional probabilities, conditional entropy, and sequence constraints, we demonstrate that the Indus sign system exhibits a high degree of mathematical structure, similar to natural language scripts, refuting claims of randomized symbol arrangements. The work provides a rigorous foundation for future decipherment and sequence modeling efforts.",
+  "paperLink": "https://aclanthology.org/2026.nlp4dh-1.28/",
+  "codeLink": "https://github.com/horus84",
+  "tags": ["Indus Script", "Computational Linguistics", "Statistical NLP", "Ancient Scripts"],
+  "featured": true
+}

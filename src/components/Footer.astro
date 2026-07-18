@@ -1,0 +1,34 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-brand-border/40 bg-brand-sand/30 py-12 text-sm text-stone-600 no-print transition-all duration-150">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div class="space-y-1">
+      <p class="font-lora text-brand-slate font-semibold">Tanishk Tiwari</p>
+      <p class="text-xs text-brand-muted">
+        Undergraduate AI & ML Researcher • New Delhi, India
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs font-semibold uppercase tracking-wider text-brand-slate/80">
+      <a href="mailto:t.high1945@gmail.com" class="hover:text-brand-rust transition-colors duration-150 focus:outline-none focus:ring-1 focus:ring-brand-rust rounded px-0.5">
+        Email
+      </a>
+      <a href="https://github.com/horus84" target="_blank" rel="noopener noreferrer" class="hover:text-brand-rust transition-colors duration-150 focus:outline-none focus:ring-1 focus:ring-brand-rust rounded px-0.5">
+        GitHub
+      </a>
+      <a href="/rss.xml" class="hover:text-brand-rust transition-colors duration-150 flex items-center gap-1 focus:outline-none focus:ring-1 focus:ring-brand-rust rounded px-0.5">
+        RSS Feed
+      </a>
+      <a href="/sitemap-index.xml" class="hover:text-brand-rust transition-colors duration-150 focus:outline-none focus:ring-1 focus:ring-brand-rust rounded px-0.5">
+        Sitemap
+      </a>
+    </div>
+  </div>
+  
+  <div class="max-w-5xl mx-auto px-6 mt-8 pt-6 border-t border-brand-border/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-brand-muted">
+    <p>© {year} Tanishk Tiwari. All rights reserved.</p>
+    <p>Designed and built with Astro, TypeScript & Tailwind CSS 4.</p>
+  </div>
+</footer>

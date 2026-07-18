@@ -1,0 +1,165 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+
+const allProjects = await getCollection('projects');
+const llmProjects = allProjects.filter(p => p.data.track === 'llm');
+const indusProjects = allProjects.filter(p => p.data.track === 'indus');
+
+const allPublications = await getCollection('publications');
+const llmPubs = allPublications.filter(pub => pub.data.tags.some(t => t.toLowerCase().includes('llm') || t.toLowerCase().includes('cache')));
+const indusPubs = allPublications.filter(pub => pub.data.tags.some(t => t.toLowerCase().includes('indus')));
+---
+
+<Layout 
+  title="Research | Tanishk Tiwari" 
+  description="Explore the research tracks of Tanishk Tiwari: value-focused KV-cache compression for LLM inference, statistical analysis of Indus sign sequences, and quantum ML exploration."
+>
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="border-b border-brand-border/40 pb-6">
+      <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Research Program</h1>
+      <p class="text-sm text-brand-muted mt-1">Investigating structural constraints, computational efficiency, and sequence representation in intelligent systems.</p>
+    </div>
+
+    <!-- Track A -->
+    <section id="track-a" class="scroll-mt-20">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="md:col-span-1 space-y-4">
+          <div class="inline-flex items-center px-3 py-1 rounded bg-blue-50 text-blue-800 text-xs font-bold border border-blue-200 uppercase tracking-wide">
+            Track A
+          </div>
+          <h2 class="text-2xl font-bold font-lora text-brand-slate leading-tight">
+            Efficient LLM Inference & KV-Cache Compression
+          </h2>
+          <p class="text-xs text-brand-muted uppercase tracking-wider">Focus: Systems & Model Architecture</p>
+        </div>
+
+        <div class="md:col-span-2 space-y-6">
+          <div class="text-sm text-stone-600 space-y-4 leading-relaxed">
+            <p>
+              Modern Large Language Models (LLMs) suffer from severe memory bottlenecks during generation due to the linear growth of the Key-Value (KV) cache. For long-context lengths, KV-cache storage dominates GPU memory usage, reducing maximum serving concurrency and introducing latency.
+            </p>
+            <p>
+              My active research focuses on <strong>value-focused KV-cache compression</strong>. By leveraging runtime attention weight trajectories and value vector profiles, we dynamically prune redundant key-value pairs. 
+            </p>
+            <p class="font-semibold text-brand-slate">Methodology & Focus Areas:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li>Developing a value-focused KV-cache compression framework for reducing memory use during long-context autoregressive inference.</li>
+              <li>Investigating adaptive low-rank representations, salient residual preservation, and compressed attention computation using PyTorch and Hugging Face Transformers.</li>
+              <li>Designing evaluations covering model quality, memory usage, latency, throughput, perplexity, and long-context task performance.</li>
+              <li>Preparing the work for submission through ACL Rolling Review.</li>
+            </ul>
+          </div>
+
+          <!-- Publications for Track A -->
+          {llmPubs.length > 0 && (
+            <div class="pt-4 space-y-4 border-t border-brand-border/20">
+              <h4 class="text-xs font-bold text-brand-slate uppercase tracking-wider">Track Publications</h4>
+              {llmPubs.map(pub => (
+                <PublicationCard publication={pub} />
+              ))}
+            </div>
+          )}
+
+          <!-- Projects for Track A -->
+          {llmProjects.length > 0 && (
+            <div class="pt-4 space-y-4 border-t border-brand-border/20">
+              <h4 class="text-xs font-bold text-brand-slate uppercase tracking-wider">Track Projects & Artifacts</h4>
+              <div class="grid sm:grid-cols-2 gap-4">
+                {llmProjects.map(proj => (
+                  <ProjectCard project={proj} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Track B -->
+    <section id="track-b" class="scroll-mt-20 border-t border-brand-border/40 pt-12">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="md:col-span-1 space-y-4">
+          <div class="inline-flex items-center px-3 py-1 rounded bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200 uppercase tracking-wide">
+            Track B
+          </div>
+          <h2 class="text-2xl font-bold font-lora text-brand-slate leading-tight">
+            Computational & Statistical Analysis of Indus Sign Sequences
+          </h2>
+          <p class="text-xs text-brand-muted uppercase tracking-wider">Focus: Computational Epigraphy & Linguistics</p>
+        </div>
+
+        <div class="md:col-span-2 space-y-6">
+          <div class="text-sm text-stone-600 space-y-4 leading-relaxed">
+            <p>
+              The Indus script, dating back to the Bronze Age in South Asia, remains undeciphered. A central debate centers on whether the script exhibits linguistic structure or represents non-linguistic signs.
+            </p>
+            <p>
+              My work applies rigorous mathematical and statistical NLP methods to the Indus corpus to explore the grammatical syntax constraints of the sign system.
+            </p>
+            <p class="font-semibold text-brand-slate">Methodology & Focus Areas:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li>Built and harmonized a corpus of more than 6,000 Indus inscriptions for statistical and neural sequence analysis.</li>
+              <li>Studied conditional entropy, Pointwise Mutual Information (PMI), positional regularity, directional asymmetry, HMM structure, and BiLSTM next-token prediction.</li>
+              <li>Designed sequence-reversal and perturbation experiments to test whether observed ordering constraints could be explained by chance or simple frequency effects.</li>
+              <li>Published and presented our findings at NLP4DH 2026, co-located with ACL 2026, in San Diego.</li>
+            </ul>
+          </div>
+
+          <!-- Publications for Track B -->
+          {indusPubs.length > 0 && (
+            <div class="pt-4 space-y-4 border-t border-brand-border/20">
+              <h4 class="text-xs font-bold text-brand-slate uppercase tracking-wider">Track Publications</h4>
+              {indusPubs.map(pub => (
+                <PublicationCard publication={pub} />
+              ))}
+            </div>
+          )}
+
+          <!-- Projects for Track B -->
+          {indusProjects.length > 0 && (
+            <div class="pt-4 space-y-4 border-t border-brand-border/20">
+              <h4 class="text-xs font-bold text-brand-slate uppercase tracking-wider">Track Projects & Artifacts</h4>
+              <div class="grid sm:grid-cols-2 gap-4">
+                {indusProjects.map(proj => (
+                  <ProjectCard project={proj} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Track C: Exploratory / Additional Work -->
+    <section id="track-c" class="scroll-mt-20 border-t border-brand-border/40 pt-12">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="md:col-span-1 space-y-4">
+          <div class="inline-flex items-center px-3 py-1 rounded bg-stone-50 text-stone-700 text-xs font-bold border border-stone-200 uppercase tracking-wide">
+            Exploratory Track
+          </div>
+          <h2 class="text-2xl font-bold font-lora text-brand-slate leading-tight">
+            Quantum Machine Learning and Circuit Trainability
+          </h2>
+          <p class="text-xs text-brand-muted uppercase tracking-wider">Focus: Theoretical Architectures</p>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="text-sm text-stone-600 space-y-4 leading-relaxed">
+            <p>
+              In addition to systems and epigraphy, I conduct exploratory research in Quantum Machine Learning, studying parameter trainability inside variational systems.
+            </p>
+            <p class="font-semibold text-brand-slate">Methodology & Focus Areas:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li>Built mixed-state PyTorch and PennyLane experiments using amplitude damping and non-unitary operations.</li>
+              <li>Measured gradient variance across circuit depths and noise settings to study parameterized quantum-circuit trainability and barren-plateau behaviour.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

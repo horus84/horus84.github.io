@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Contact | Tanishk Tiwari" 
+  description="Contact Tanishk Tiwari. Reach out for collaborations, research internships, or inquiries regarding LLM inference efficiency and Indus script sequences."
+>
+  <div class="max-w-2xl mx-auto space-y-12">
+    <!-- Header -->
+    <div class="border-b border-brand-border/40 pb-6 text-center">
+      <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Get in Touch</h1>
+      <p class="text-sm text-brand-muted mt-1">For collaboration, research internships, and inquiries.</p>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="grid md:grid-cols-2 gap-8 items-stretch pt-4">
+      <div class="border border-brand-border/40 rounded p-6 bg-white shadow-sm flex flex-col justify-between hover:border-brand-rust transition-colors duration-150">
+        <div class="space-y-2">
+          <span class="text-[10px] font-semibold text-brand-rust uppercase tracking-wider">Email Address</span>
+          <h2 class="text-lg font-bold text-brand-slate font-lora">Direct Correspondence</h2>
+          <p class="text-xs text-brand-muted">Best method for academic inquiries or internship discussions.</p>
+        </div>
+        <a 
+          href="mailto:t.high1945@gmail.com" 
+          class="inline-flex items-center text-sm font-semibold text-brand-rust hover:underline mt-6 break-all focus:outline-none focus:ring-1 focus:ring-brand-rust rounded"
+        >
+          t.high1945@gmail.com &rarr;
+        </a>
+      </div>
+
+      <div class="border border-brand-border/40 rounded p-6 bg-white shadow-sm flex flex-col justify-between hover:border-brand-rust transition-colors duration-150">
+        <div class="space-y-2">
+          <span class="text-[10px] font-semibold text-brand-rust uppercase tracking-wider">Code & Open Source</span>
+          <h2 class="text-lg font-bold text-brand-slate font-lora">GitHub Profile</h2>
+          <p class="text-xs text-brand-muted">View my research repositories, benchmarks, and tools.</p>
+        </div>
+        <a 
+          href="https://github.com/horus84" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center text-sm font-semibold text-brand-rust hover:underline mt-6 focus:outline-none focus:ring-1 focus:ring-brand-rust rounded"
+        >
+          github.com/horus84 &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Additional Info / Location -->
+    <div class="bg-brand-sand/20 border border-brand-border/20 rounded p-6 text-center space-y-2 text-sm text-stone-600">
+      <p class="font-semibold text-brand-slate">Location</p>
+      <p>New Delhi, India</p>
+      <p class="text-xs text-brand-muted">Delhi Skill and Entrepreneurship University (DSEU)</p>
+    </div>
+  </div>
+</Layout>
