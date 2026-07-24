@@ -1,8 +1,8 @@
-# Tanishk Tiwari — Personal Research Website
+# Portfolio
 
-A production-quality, editorial academic website for **Tanishk Tiwari**, an undergraduate AI & ML researcher. The design is structured to emulate traditional academic journals and typesetting layouts, avoiding typical developer portfolio templates.
+The design is structured to emulate traditional academic journals and typesetting layouts, avoiding typical developer portfolio templates.
 
-## 🚀 Technologies
+## Technologies
 
 - **Framework:** Astro 7
 - **Styling:** Tailwind CSS 4 (using CSS variables, `@theme`, and `@layer`)
@@ -12,7 +12,7 @@ A production-quality, editorial academic website for **Tanishk Tiwari**, an unde
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 /
@@ -53,7 +53,7 @@ A production-quality, editorial academic website for **Tanishk Tiwari**, an unde
 
 ---
 
-## 🛠️ Local Development & Setup
+## Local Development & Setup
 
 ### 1. Install Dependencies
 Run the installation command from the project root:
