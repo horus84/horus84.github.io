@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tanishktiwari.github.io',
+  site: 'https://horus84.github.io',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]

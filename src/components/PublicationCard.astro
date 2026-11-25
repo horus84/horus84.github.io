@@ -20,165 +20,86 @@ interface Props {
 
 const { publication } = Astro.props;
 const { title, authors, venue, year, status, summary, paperLink, codeLink, slidesLink, tags } = publication.data;
-const id = publication.id.replace(/[^a-zA-Z0-9-]/g, ''); // Ensure safe ID
+const id = publication.id.replace(/[^a-zA-Z0-9-]/g, '');
+
+const statusLabel = status === 'in-progress' ? 'In Progress' : status === 'preprint' ? 'Preprint' : 'Published';
+const statusDot = status === 'in-progress' ? 'ember' : status === 'preprint' ? '' : 'dim';
+
+const authorParts = authors.split('Tanishk Tiwari');
 ---
 
-<div class="py-6 border-b border-brand-border/40 last:border-b-0 hover:bg-brand-sand/10 px-2 rounded-lg transition-all duration-150 group">
-  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-    <div class="space-y-2 flex-grow">
-      <div class="flex flex-wrap items-center gap-2">
-        {status === 'in-progress' && (
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-100 text-amber-800 border border-amber-200 uppercase tracking-wide">
-            Work in Progress (Under Review)
-          </span>
-        )}
-        {status === 'preprint' && (
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-100 text-blue-800 border border-blue-200 uppercase tracking-wide">
-            Preprint
-          </span>
-        )}
-        <span class="text-xs font-semibold tracking-wider text-brand-rust/85 uppercase">
-          {venue} • {year}
-        </span>
-      </div>
-
-      <h3 class="text-lg font-bold text-brand-slate leading-snug group-hover:text-brand-rust transition-colors duration-150 font-lora">
-        {paperLink ? (
-          <a href={paperLink} target="_blank" rel="noopener noreferrer" class="hover:underline focus:outline-none focus:ring-1 focus:ring-brand-rust rounded">
-            {title}
-          </a>
-        ) : (
-          title
-        )}
-      </h3>
-
-      <p class="text-sm text-brand-charcoal/90">
-        {authors.includes('Tanishk Tiwari') ? (
-          <span>
-            {authors.split('Tanishk Tiwari')[0]}
-            <strong class="font-semibold text-brand-slate">Tanishk Tiwari</strong>
-            {authors.split('Tanishk Tiwari')[1]}
-          </span>
-        ) : (
-          authors
-        )}
-      </p>
-
-      {/* Abstract Toggle */}
-      {summary && (
-        <div class="pt-1.5">
-          <button
-            class="abstract-toggle text-xs font-semibold text-brand-slate hover:text-brand-rust flex items-center gap-1.5 focus:outline-none focus:ring-1 focus:ring-brand-rust rounded py-0.5 px-1"
-            data-target={`abstract-${id}`}
-            aria-expanded="false"
-            aria-controls={`abstract-${id}`}
-          >
-            <span>Show Abstract</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transform transition-transform duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          
-          <div
-            id={`abstract-${id}`}
-            class="hidden mt-3 text-xs leading-relaxed text-stone-600 bg-brand-sand/30 p-4 border-l-2 border-brand-rust rounded-r shadow-sm transition-all duration-200"
-          >
-            <p class="font-semibold text-brand-slate/90 mb-1.5">Abstract / Summary</p>
-            <p>{summary}</p>
-          </div>
-        </div>
-      )}
-
-      {/* Tags */}
-      <div class="flex flex-wrap gap-1.5 pt-2">
-        {tags.map((tag) => (
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-brand-sand text-stone-700 border border-brand-border/30">
-            {tag}
-          </span>
-        ))}
-      </div>
+<article class="paper-row">
+  <div class="min-w-0">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+      <span class="label">{year}</span>
+      <span class="status"><span class:list={['status-dot', statusDot]}></span>{statusLabel}</span>
+      <span class="label">{venue}</span>
     </div>
 
-    {/* Actions */}
-    <div class="flex md:flex-col items-stretch gap-2 min-w-[100px] shrink-0 text-xs no-print">
-      {paperLink && (
-        <a
-          href={paperLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-center px-3 py-1.5 border border-brand-border bg-white text-stone-700 hover:border-brand-rust hover:text-brand-rust hover:bg-brand-rust/5 font-semibold rounded transition-all duration-150 shadow-sm flex items-center justify-center gap-1.5"
-        >
-          <span>Paper</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
+    <h3 class="text-xl md:text-2xl font-semibold tracking-tight leading-snug">
+      {paperLink ? (
+        <a href={paperLink} target="_blank" rel="noopener noreferrer" class="hover:text-acid transition-colors">
+          {title}
         </a>
-      )}
-      
-      {codeLink && (
-        <a
-          href={codeLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-center px-3 py-1.5 border border-brand-border bg-white text-stone-700 hover:border-brand-rust hover:text-brand-rust hover:bg-brand-rust/5 font-semibold rounded transition-all duration-150 shadow-sm flex items-center justify-center gap-1.5"
-        >
-          <span>Code</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
-          </svg>
-        </a>
-      )}
+      ) : title}
+    </h3>
 
-      {slidesLink && (
-        <a
-          href={slidesLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-center px-3 py-1.5 border border-brand-border bg-white text-stone-700 hover:border-brand-rust hover:text-brand-rust hover:bg-brand-rust/5 font-semibold rounded transition-all duration-150 shadow-sm flex items-center justify-center gap-1.5"
+    <p class="text-sm text-dim mt-3">
+      {authorParts.length === 2 ? (
+        <>{authorParts[0]}<strong class="text-bone font-medium">Tanishk Tiwari</strong>{authorParts[1]}</>
+      ) : authors}
+    </p>
+
+    {summary && (
+      <div class="mt-4 no-print">
+        <button
+          class="abstract-toggle text-link"
+          data-target={`abstract-${id}`}
+          aria-expanded="false"
+          aria-controls={`abstract-${id}`}
         >
-          <span>Slides</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          <span>Abstract</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
-        </a>
-      )}
+        </button>
+        <div id={`abstract-${id}`} class="hidden mt-4 p-4 border border-line bg-panel text-sm text-dim leading-relaxed">
+          {summary}
+        </div>
+      </div>
+    )}
+
+    <div class="flex flex-wrap gap-2 mt-4">
+      {tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>
   </div>
-</div>
+
+  <div class="flex md:flex-col gap-3 md:items-end shrink-0 no-print">
+    {paperLink && <a href={paperLink} target="_blank" rel="noopener noreferrer" class="text-link">Paper <span aria-hidden="true">↗</span></a>}
+    {codeLink && <a href={codeLink} target="_blank" rel="noopener noreferrer" class="text-link">Code <span aria-hidden="true">↗</span></a>}
+    {slidesLink && <a href={slidesLink} target="_blank" rel="noopener noreferrer" class="text-link">Slides <span aria-hidden="true">↗</span></a>}
+  </div>
+</article>
 
 <script>
-  function setupToggles() {
-    const toggles = document.querySelectorAll('.abstract-toggle');
-    toggles.forEach(toggle => {
-      // Avoid stacking duplicate event listeners by copying/replacing element
-      const newToggle = toggle.cloneNode(true) as HTMLButtonElement;
-      toggle.parentNode?.replaceChild(newToggle, toggle);
-
-      newToggle.addEventListener('click', () => {
-        const targetId = newToggle.getAttribute('data-target');
+  function setupAbstractToggles() {
+    document.querySelectorAll('.abstract-toggle').forEach((toggle) => {
+      const fresh = toggle.cloneNode(true) as HTMLButtonElement;
+      toggle.parentNode?.replaceChild(fresh, toggle);
+      fresh.addEventListener('click', () => {
+        const targetId = fresh.getAttribute('data-target');
         if (!targetId) return;
         const target = document.getElementById(targetId);
         if (!target) return;
-
-        const isExpanded = newToggle.getAttribute('aria-expanded') === 'true';
-        newToggle.setAttribute('aria-expanded', (!isExpanded).toString());
-        
+        const expanded = fresh.getAttribute('aria-expanded') === 'true';
+        fresh.setAttribute('aria-expanded', String(!expanded));
         target.classList.toggle('hidden');
-        
-        const arrow = newToggle.querySelector('svg');
-        if (arrow) {
-          arrow.classList.toggle('rotate-180');
-        }
-
-        const btnText = newToggle.querySelector('span');
-        if (btnText) {
-          btnText.textContent = isExpanded ? 'Show Abstract' : 'Hide Abstract';
-        }
+        fresh.querySelector('svg')?.classList.toggle('rotate-180');
+        const label = fresh.querySelector('span');
+        if (label) label.textContent = expanded ? 'Abstract' : 'Hide';
       });
     });
   }
-
-  // Bind toggle logic on startup and page navigations
-  setupToggles();
-  document.addEventListener('astro:after-swap', setupToggles);
+  setupAbstractToggles();
+  document.addEventListener('astro:after-swap', setupAbstractToggles);
 </script>

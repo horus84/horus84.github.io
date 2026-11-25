@@ -2,55 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout 
-  title="Contact | Tanishk Tiwari" 
-  description="Contact Tanishk Tiwari. Reach out for collaborations, research internships, or inquiries regarding LLM inference efficiency and Indus script sequences."
+<Layout
+  title="Contact | Tanishk Tiwari"
+  description="Contact Tanishk Tiwari for research collaborations, internship opportunities, or questions about LLM inference, interpretability, and computational epigraphy."
 >
-  <div class="max-w-2xl mx-auto space-y-12">
-    <!-- Header -->
-    <div class="border-b border-brand-border/40 pb-6 text-center">
-      <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Get in Touch</h1>
-      <p class="text-sm text-brand-muted mt-1">For collaboration, research internships, and inquiries.</p>
-    </div>
-
-    <!-- Contact Info -->
-    <div class="grid md:grid-cols-2 gap-8 items-stretch pt-4">
-      <div class="border border-brand-border/40 rounded p-6 bg-white shadow-sm flex flex-col justify-between hover:border-brand-rust transition-colors duration-150">
-        <div class="space-y-2">
-          <span class="text-[10px] font-semibold text-brand-rust uppercase tracking-wider">Email Address</span>
-          <h2 class="text-lg font-bold text-brand-slate font-lora">Direct Correspondence</h2>
-          <p class="text-xs text-brand-muted">Best method for academic inquiries or internship discussions.</p>
-        </div>
-        <a 
-          href="mailto:t.high1945@gmail.com" 
-          class="inline-flex items-center text-sm font-semibold text-brand-rust hover:underline mt-6 break-all focus:outline-none focus:ring-1 focus:ring-brand-rust rounded"
-        >
-          t.high1945@gmail.com &rarr;
-        </a>
-      </div>
-
-      <div class="border border-brand-border/40 rounded p-6 bg-white shadow-sm flex flex-col justify-between hover:border-brand-rust transition-colors duration-150">
-        <div class="space-y-2">
-          <span class="text-[10px] font-semibold text-brand-rust uppercase tracking-wider">Code & Open Source</span>
-          <h2 class="text-lg font-bold text-brand-slate font-lora">GitHub Profile</h2>
-          <p class="text-xs text-brand-muted">View my research repositories, benchmarks, and tools.</p>
-        </div>
-        <a 
-          href="https://github.com/horus84" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="inline-flex items-center text-sm font-semibold text-brand-rust hover:underline mt-6 focus:outline-none focus:ring-1 focus:ring-brand-rust rounded"
-        >
-          github.com/horus84 &rarr;
-        </a>
+  <div class="shell section">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-num">CONTACT</span>
+        <h1 class="display-lg">Let's build something <span class="serif text-acid">rigorous.</span></h1>
       </div>
     </div>
 
-    <!-- Additional Info / Location -->
-    <div class="bg-brand-sand/20 border border-brand-border/20 rounded p-6 text-center space-y-2 text-sm text-stone-600">
-      <p class="font-semibold text-brand-slate">Location</p>
-      <p>New Delhi, India</p>
-      <p class="text-xs text-brand-muted">Delhi Skill and Entrepreneurship University (DSEU)</p>
+    <div class="grid gap-6 md:grid-cols-2 max-w-4xl reveal">
+      <a href="mailto:t.high1945@gmail.com" class="panel panel-hover p-8 block">
+        <p class="label label-acid mb-4">Email</p>
+        <h2 class="text-2xl font-semibold">Direct correspondence</h2>
+        <p class="text-sm text-dim mt-3">Best for research collaboration, internship discussions, or academic inquiries.</p>
+        <p class="text-link mt-6">t.high1945@gmail.com <span aria-hidden="true">↗</span></p>
+      </a>
+
+      <a href="https://github.com/horus84" target="_blank" rel="noopener noreferrer" class="panel panel-hover p-8 block">
+        <p class="label mb-4">GitHub</p>
+        <h2 class="text-2xl font-semibold">Code &amp; artifacts</h2>
+        <p class="text-sm text-dim mt-3">Research repos, experiments, benchmarks, and tools.</p>
+        <p class="text-link mt-6">github.com/horus84 <span aria-hidden="true">↗</span></p>
+      </a>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3 max-w-4xl mt-6 reveal">
+      <div class="panel p-6">
+        <p class="label mb-2">Location</p>
+        <p class="text-sm text-bone">New Delhi, India</p>
+        <p class="text-sm text-dim mt-1">Delhi Skill and Entrepreneurship University</p>
+      </div>
+      <a href="https://www.linkedin.com/in/Tanishk-Tiwari-2/" target="_blank" rel="noopener noreferrer" class="panel panel-hover p-6 block">
+        <p class="label mb-2">LinkedIn</p>
+        <p class="text-link">Tanishk-Tiwari-2 <span aria-hidden="true">↗</span></p>
+      </a>
+      <a href="https://orcid.org/0009-0004-6482-4479" target="_blank" rel="noopener noreferrer" class="panel panel-hover p-6 block">
+        <p class="label mb-2">ORCID</p>
+        <p class="text-link">0009-0004-6482-4479 <span aria-hidden="true">↗</span></p>
+      </a>
     </div>
   </div>
 </Layout>

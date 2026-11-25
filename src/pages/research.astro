@@ -5,74 +5,70 @@ import ProjectCard from '../components/ProjectCard.astro';
 import PublicationCard from '../components/PublicationCard.astro';
 
 const allProjects = await getCollection('projects');
-const llmProjects = allProjects.filter(p => p.data.track === 'llm');
-const indusProjects = allProjects.filter(p => p.data.track === 'indus');
+const llmProjects = allProjects.filter((p) => p.data.track === 'llm');
+const indusProjects = allProjects.filter((p) => p.data.track === 'indus');
+const otherProjects = allProjects.filter((p) => p.data.track === 'other');
 
 const allPublications = await getCollection('publications');
-const llmPubs = allPublications.filter(pub => pub.data.tags.some(t => t.toLowerCase().includes('llm') || t.toLowerCase().includes('cache')));
-const indusPubs = allPublications.filter(pub => pub.data.tags.some(t => t.toLowerCase().includes('indus')));
+const llmPubs = allPublications.filter((pub) => pub.data.tags.some((t) => /llm|cache|transformer/i.test(t)));
+const indusPubs = allPublications.filter((pub) => pub.data.tags.some((t) => /indus/i.test(t)));
 ---
 
-<Layout 
-  title="Research | Tanishk Tiwari" 
-  description="Explore the research tracks of Tanishk Tiwari: value-focused KV-cache compression for LLM inference, statistical analysis of Indus sign sequences, and quantum ML exploration."
+<Layout
+  title="Research | Tanishk Tiwari"
+  description="Research tracks by Tanishk Tiwari: efficient LLM inference, mechanistic interpretability, Indus sign sequence analysis, and quantum ML trainability."
 >
-  <div class="space-y-12">
-    <!-- Header -->
-    <div class="border-b border-brand-border/40 pb-6">
-      <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Research Program</h1>
-      <p class="text-sm text-brand-muted mt-1">Investigating structural constraints, computational efficiency, and sequence representation in intelligent systems.</p>
+  <div class="shell section">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-num">RESEARCH</span>
+        <h1 class="display-lg">Questions with <span class="serif text-acid">measurable</span> answers.</h1>
+      </div>
+      <p class="label max-w-[24rem]">Systems efficiency, sequence structure, and careful evaluation.</p>
     </div>
 
     <!-- Track A -->
-    <section id="track-a" class="scroll-mt-20">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="md:col-span-1 space-y-4">
-          <div class="inline-flex items-center px-3 py-1 rounded bg-blue-50 text-blue-800 text-xs font-bold border border-blue-200 uppercase tracking-wide">
-            Track A
-          </div>
-          <h2 class="text-2xl font-bold font-lora text-brand-slate leading-tight">
-            Efficient LLM Inference & KV-Cache Compression
-          </h2>
-          <p class="text-xs text-brand-muted uppercase tracking-wider">Focus: Systems & Model Architecture</p>
+    <section id="track-a" class="scroll-mt-24 py-12 border-b border-line">
+      <div class="grid gap-10 lg:grid-cols-[280px_1fr]">
+        <div class="reveal">
+          <p class="label label-acid mb-4">Track 01</p>
+          <h2 class="section-title">LLM inference &amp; mechanistic interpretability</h2>
+          <p class="label mt-4">Systems · Model internals</p>
         </div>
-
-        <div class="md:col-span-2 space-y-6">
-          <div class="text-sm text-stone-600 space-y-4 leading-relaxed">
+        <div class="space-y-8 reveal">
+          <div class="text-sm text-dim leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Modern Large Language Models (LLMs) suffer from severe memory bottlenecks during generation due to the linear growth of the Key-Value (KV) cache. For long-context lengths, KV-cache storage dominates GPU memory usage, reducing maximum serving concurrency and introducing latency.
+              Long-context language models pay a memory tax: the KV cache grows linearly, dominates VRAM, and limits
+              concurrency. I’m building value-focused KV-cache compression that preserves the information attention
+              actually uses — through adaptive low-rank representations, salient residual preservation, and compressed
+              attention computation.
             </p>
             <p>
-              My active research focuses on <strong>value-focused KV-cache compression</strong>. By leveraging runtime attention weight trajectories and value vector profiles, we dynamically prune redundant key-value pairs. 
+              In parallel, I’m developing a mechanistic interpretability probe suite for open-weight Qwen models:
+              forward hooks, residual-stream activations, attention-head specialisation, and activation-patching
+              interventions to understand reasoning behaviour from the inside.
             </p>
-            <p class="font-semibold text-brand-slate">Methodology & Focus Areas:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li>Developing a value-focused KV-cache compression framework for reducing memory use during long-context autoregressive inference.</li>
-              <li>Investigating adaptive low-rank representations, salient residual preservation, and compressed attention computation using PyTorch and Hugging Face Transformers.</li>
-              <li>Designing evaluations covering model quality, memory usage, latency, throughput, perplexity, and long-context task performance.</li>
-              <li>Preparing the work for submission through ACL Rolling Review.</li>
+          </div>
+          <div class="panel p-5">
+            <p class="label mb-3">Method</p>
+            <ul class="text-sm text-dim space-y-2">
+              <li class="flex gap-3"><span class="text-acid font-mono text-xs mt-0.5">→</span><span>Benchmark quality, memory, latency, throughput, perplexity, and long-context task performance.</span></li>
+              <li class="flex gap-3"><span class="text-acid font-mono text-xs mt-0.5">→</span><span>Implement in PyTorch and Hugging Face Transformers; prepare work for ACL Rolling Review.</span></li>
+              <li class="flex gap-3"><span class="text-acid font-mono text-xs mt-0.5">→</span><span>Use activation patching and head-level analysis to connect behaviour to internal mechanisms.</span></li>
             </ul>
           </div>
-
-          <!-- Publications for Track A -->
-          {llmPubs.length > 0 && (
-            <div class="pt-4 space-y-4 border-t border-brand-border/20">
-              <h4 class="text-xs font-bold text-brand-slate uppercase tracking-wider">Track Publications</h4>
-              {llmPubs.map(pub => (
-                <PublicationCard publication={pub} />
-              ))}
+          {llmProjects.length > 0 && (
+            <div>
+              <p class="label mb-4">Artifacts</p>
+              <div class="grid gap-5 sm:grid-cols-2">
+                {llmProjects.map((proj) => <ProjectCard project={proj} />)}
+              </div>
             </div>
           )}
-
-          <!-- Projects for Track A -->
-          {llmProjects.length > 0 && (
-            <div class="pt-4 space-y-4 border-t border-brand-border/20">
-              <h4 class="text-xs font-bold text-brand-slate uppercase tracking-wider">Track Projects & Artifacts</h4>
-              <div class="grid sm:grid-cols-2 gap-4">
-                {llmProjects.map(proj => (
-                  <ProjectCard project={proj} />
-                ))}
-              </div>
+          {llmPubs.length > 0 && (
+            <div>
+              <p class="label mb-4">Related writing</p>
+              {llmPubs.map((pub) => <PublicationCard publication={pub} />)}
             </div>
           )}
         </div>
@@ -80,84 +76,74 @@ const indusPubs = allPublications.filter(pub => pub.data.tags.some(t => t.toLowe
     </section>
 
     <!-- Track B -->
-    <section id="track-b" class="scroll-mt-20 border-t border-brand-border/40 pt-12">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="md:col-span-1 space-y-4">
-          <div class="inline-flex items-center px-3 py-1 rounded bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200 uppercase tracking-wide">
-            Track B
-          </div>
-          <h2 class="text-2xl font-bold font-lora text-brand-slate leading-tight">
-            Computational & Statistical Analysis of Indus Sign Sequences
-          </h2>
-          <p class="text-xs text-brand-muted uppercase tracking-wider">Focus: Computational Epigraphy & Linguistics</p>
+    <section id="track-b" class="scroll-mt-24 py-12 border-b border-line">
+      <div class="grid gap-10 lg:grid-cols-[280px_1fr]">
+        <div class="reveal">
+          <p class="label label-ember mb-4">Track 02</p>
+          <h2 class="section-title">Computational analysis of Indus sign sequences</h2>
+          <p class="label mt-4">Epigraphy · Statistical NLP</p>
         </div>
-
-        <div class="md:col-span-2 space-y-6">
-          <div class="text-sm text-stone-600 space-y-4 leading-relaxed">
+        <div class="space-y-8 reveal">
+          <div class="text-sm text-dim leading-relaxed space-y-4 max-w-3xl">
             <p>
-              The Indus script, dating back to the Bronze Age in South Asia, remains undeciphered. A central debate centers on whether the script exhibits linguistic structure or represents non-linguistic signs.
+              The Indus script remains undeciphered. Rather than overclaiming decipherment, I ask a narrower question:
+              do sign sequences exhibit statistical structure that simple chance or frequency effects cannot explain?
             </p>
             <p>
-              My work applies rigorous mathematical and statistical NLP methods to the Indus corpus to explore the grammatical syntax constraints of the sign system.
+              I built and harmonised a corpus of 6,000+ inscriptions, then analysed conditional entropy, PMI, positional
+              regularity, directional asymmetry, HMM structure, and BiLSTM next-token prediction. Reversal and
+              perturbation experiments served as controls.
             </p>
-            <p class="font-semibold text-brand-slate">Methodology & Focus Areas:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li>Built and harmonized a corpus of more than 6,000 Indus inscriptions for statistical and neural sequence analysis.</li>
-              <li>Studied conditional entropy, Pointwise Mutual Information (PMI), positional regularity, directional asymmetry, HMM structure, and BiLSTM next-token prediction.</li>
-              <li>Designed sequence-reversal and perturbation experiments to test whether observed ordering constraints could be explained by chance or simple frequency effects.</li>
-              <li>Published and presented our findings at NLP4DH 2026, co-located with ACL 2026, in San Diego.</li>
-            </ul>
           </div>
-
-          <!-- Publications for Track B -->
-          {indusPubs.length > 0 && (
-            <div class="pt-4 space-y-4 border-t border-brand-border/20">
-              <h4 class="text-xs font-bold text-brand-slate uppercase tracking-wider">Track Publications</h4>
-              {indusPubs.map(pub => (
-                <PublicationCard publication={pub} />
-              ))}
+          <div class="panel p-5">
+            <p class="label mb-3">Outcome</p>
+            <p class="text-sm text-dim">
+              Published as <span class="text-bone">“Statistical Structure in Indus Sign Sequences”</span> in NLP4DH 2026,
+              co-located with ACL 2026, and presented in San Diego.
+            </p>
+          </div>
+          {indusProjects.length > 0 && (
+            <div>
+              <p class="label mb-4">Artifacts</p>
+              <div class="grid gap-5 sm:grid-cols-2">
+                {indusProjects.map((proj) => <ProjectCard project={proj} />)}
+              </div>
             </div>
           )}
-
-          <!-- Projects for Track B -->
-          {indusProjects.length > 0 && (
-            <div class="pt-4 space-y-4 border-t border-brand-border/20">
-              <h4 class="text-xs font-bold text-brand-slate uppercase tracking-wider">Track Projects & Artifacts</h4>
-              <div class="grid sm:grid-cols-2 gap-4">
-                {indusProjects.map(proj => (
-                  <ProjectCard project={proj} />
-                ))}
-              </div>
+          {indusPubs.length > 0 && (
+            <div>
+              <p class="label mb-4">Publications</p>
+              {indusPubs.map((pub) => <PublicationCard publication={pub} />)}
             </div>
           )}
         </div>
       </div>
     </section>
 
-    <!-- Track C: Exploratory / Additional Work -->
-    <section id="track-c" class="scroll-mt-20 border-t border-brand-border/40 pt-12">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="md:col-span-1 space-y-4">
-          <div class="inline-flex items-center px-3 py-1 rounded bg-stone-50 text-stone-700 text-xs font-bold border border-stone-200 uppercase tracking-wide">
-            Exploratory Track
-          </div>
-          <h2 class="text-2xl font-bold font-lora text-brand-slate leading-tight">
-            Quantum Machine Learning and Circuit Trainability
-          </h2>
-          <p class="text-xs text-brand-muted uppercase tracking-wider">Focus: Theoretical Architectures</p>
+    <!-- Track C -->
+    <section id="track-c" class="scroll-mt-24 py-12">
+      <div class="grid gap-10 lg:grid-cols-[280px_1fr]">
+        <div class="reveal">
+          <p class="label mb-4">Track 03</p>
+          <h2 class="section-title">Quantum ML trainability</h2>
+          <p class="label mt-4">Exploratory · Theory</p>
         </div>
-
-        <div class="md:col-span-2">
-          <div class="text-sm text-stone-600 space-y-4 leading-relaxed">
+        <div class="space-y-8 reveal">
+          <div class="text-sm text-dim leading-relaxed space-y-4 max-w-3xl">
             <p>
-              In addition to systems and epigraphy, I conduct exploratory research in Quantum Machine Learning, studying parameter trainability inside variational systems.
+              An exploratory thread investigating how mixed-state noise affects trainability in parameterized quantum
+              circuits. I build experiments in PennyLane and PyTorch with amplitude damping and non-unitary operations,
+              measuring gradient variance across circuit depths and noise settings to study barren-plateau behaviour.
             </p>
-            <p class="font-semibold text-brand-slate">Methodology & Focus Areas:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li>Built mixed-state PyTorch and PennyLane experiments using amplitude damping and non-unitary operations.</li>
-              <li>Measured gradient variance across circuit depths and noise settings to study parameterized quantum-circuit trainability and barren-plateau behaviour.</li>
-            </ul>
           </div>
+          {otherProjects.length > 0 && (
+            <div>
+              <p class="label mb-4">Artifacts</p>
+              <div class="grid gap-5 sm:grid-cols-2">
+                {otherProjects.map((proj) => <ProjectCard project={proj} />)}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

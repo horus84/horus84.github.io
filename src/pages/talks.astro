@@ -4,33 +4,27 @@ import Layout from '../layouts/Layout.astro';
 import TalkCard from '../components/TalkCard.astro';
 
 const talks = await getCollection('talks');
-
-// Sort by date (we can map dates like "June 2026", "December 2025" or sort by a custom date helper. Since there are only a few, let's sort logically by year/date or reverse chronological)
-const sortedTalks = talks.sort((a, b) => {
-  const getYear = (dateStr: string) => {
-    const match = dateStr.match(/\d{4}/);
-    return match ? parseInt(match[0]) : 0;
-  };
-  return getYear(b.data.date) - getYear(a.data.date);
+const sorted = talks.sort((a, b) => {
+  const year = (s: string) => parseInt(s.match(/\d{4}/)?.[0] || '0', 10);
+  return year(b.data.date) - year(a.data.date);
 });
 ---
 
-<Layout 
-  title="Talks & Presentations | Tanishk Tiwari" 
-  description="Presentations, lectures, and academic talks by Tanishk Tiwari on computational linguistics and the Indus script, including invited lectures at the Roja Muthiah Research Library."
+<Layout
+  title="Talks | Tanishk Tiwari"
+  description="Talks and presentations by Tanishk Tiwari, including NLP4DH/ACL 2026 and invited lectures on Indus script research."
 >
-  <div class="space-y-8">
-    <!-- Header -->
-    <div class="border-b border-brand-border/40 pb-6">
-      <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Talks & Presentations</h1>
-      <p class="text-sm text-brand-muted mt-1">Invited lectures, workshop presentations, and academic talks.</p>
+  <div class="shell section">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-num">TALKS</span>
+        <h1 class="display-lg">Talks &amp; <span class="serif text-acid">presentations.</span></h1>
+      </div>
+      <p class="label max-w-[22rem]">Lectures, conference presentations, and public research talks.</p>
     </div>
 
-    <!-- Talks Timeline List -->
-    <div class="space-y-2">
-      {sortedTalks.map(talk => (
-        <TalkCard talk={talk} />
-      ))}
+    <div class="reveal">
+      {sorted.map((talk) => <TalkCard talk={talk} />)}
     </div>
   </div>
 </Layout>

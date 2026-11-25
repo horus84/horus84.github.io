@@ -2,234 +2,157 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout 
-  title="Curriculum Vitae | Tanishk Tiwari" 
-  description="Curriculum Vitae of Tanishk Tiwari. Undergraduate AI & ML researcher at Delhi Skill and Entrepreneurship University with peer-reviewed publications in computational epigraphy and LLM inference optimization."
+<Layout
+  title="CV | Tanishk Tiwari"
+  description="Curriculum Vitae of Tanishk Tiwari — AI systems researcher working on efficient LLM inference, mechanistic interpretability, and computational epigraphy."
 >
-  <div class="max-w-3xl mx-auto space-y-10">
-    <!-- Header Page Actions -->
-    <div class="flex items-center justify-between border-b border-brand-border/40 pb-6 no-print">
+  <div class="shell section">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-8 border-b border-line mb-10 no-print reveal">
       <div>
-        <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Curriculum Vitae</h1>
-        <p class="text-sm text-brand-muted mt-1">Print-ready academic resume.</p>
+        <span class="section-num">CV</span>
+        <h1 class="display-lg">Curriculum <span class="serif text-acid">Vitae.</span></h1>
       </div>
-      <div class="flex items-center gap-3">
-        <button 
-          onclick="window.print()" 
-          class="inline-flex items-center justify-center px-4 py-2 border border-brand-slate text-brand-slate hover:bg-brand-sand/40 font-semibold rounded shadow-sm transition-all duration-150 text-xs uppercase tracking-wide cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-rust"
-        >
-          Print CV
-        </button>
-        <a 
-          href="/cv/CV_TanT.pdf" 
-          download
-          class="inline-flex items-center justify-center px-4 py-2 bg-brand-rust text-white hover:bg-brand-rust-hover font-semibold rounded shadow transition-all duration-150 text-xs uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-brand-rust"
-        >
-          Download PDF
-        </a>
+      <div class="flex gap-3">
+        <button onclick="window.print()" class="btn btn-outline">Print</button>
+        <a href="/cv/tanishk-tiwari-cv.pdf" download class="btn btn-primary">Download PDF</a>
       </div>
     </div>
 
-    <!-- CV Sheet Container -->
-    <article class="bg-white border border-brand-border/25 rounded p-8 sm:p-12 shadow-sm font-sans text-stone-800 space-y-8 print:border-none print:p-0 print:shadow-none">
-      <!-- CV Header -->
-      <header class="text-center space-y-2 border-b border-brand-border/40 pb-6">
-        <h2 class="text-3xl font-bold font-lora text-brand-slate tracking-tight">Tanishk Tiwari</h2>
-        <p class="text-sm text-stone-600 font-medium font-lora">Undergraduate Researcher in NLP and Efficient LLM Inference</p>
-        <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-1 text-xs text-brand-muted font-semibold">
-          <a href="mailto:t.high1945@gmail.com" class="hover:underline hover:text-brand-rust">t.high1945@gmail.com</a>
-          <span>•</span>
-          <a href="https://github.com/horus84" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-brand-rust">github.com/horus84</a>
-          <span>•</span>
+    <article class="paper-surface max-w-4xl mx-auto p-8 md:p-12 shadow-sm print:shadow-none print:border-none print:p-0">
+      <header class="text-center border-b border-stone-300 pb-6 mb-8">
+        <h2 class="text-3xl font-bold tracking-tight" style="font-family: var(--font-display); color:#16202a;">Tanishk Tiwari</h2>
+        <p class="text-sm mt-2" style="color:#444;">Software Engineering &amp; AI Systems Researcher · Efficient LLM Inference &amp; Mechanistic Interpretability</p>
+        <div class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs mt-3" style="color:#555;">
           <span>New Delhi, India</span>
+          <a href="mailto:t.high1945@gmail.com">t.high1945@gmail.com</a>
+          <a href="https://horus84.github.io" target="_blank" rel="noopener noreferrer">horus84.github.io</a>
+          <a href="https://github.com/horus84" target="_blank" rel="noopener noreferrer">github.com/horus84</a>
+          <a href="https://www.linkedin.com/in/Tanishk-Tiwari-2/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://orcid.org/0009-0004-6482-4479" target="_blank" rel="noopener noreferrer">ORCID</a>
         </div>
       </header>
 
-      <!-- Education Section -->
-      <section class="space-y-4">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-rust border-b border-brand-border/20 pb-1">Education</h3>
-        <div class="space-y-2">
-          <div class="flex justify-between items-start text-sm">
-            <div>
-              <span class="font-semibold text-brand-slate block">Delhi Skill and Entrepreneurship University</span>
-              <span class="text-xs text-stone-600 italic block">B.Tech in Artificial Intelligence and Machine Learning</span>
-            </div>
-            <div class="text-right">
-              <span class="text-xs text-brand-muted font-semibold block">New Delhi, India</span>
-              <span class="text-xs text-brand-rust font-semibold block">Expected 2028</span>
-            </div>
+      <section class="mb-8">
+        <h3 class="cv-h">Education</h3>
+        <div class="flex justify-between gap-4 text-sm">
+          <div>
+            <p class="font-semibold" style="color:#16202a;">Delhi Skill and Entrepreneurship University</p>
+            <p class="italic text-stone-600">B.Tech in Artificial Intelligence and Machine Learning</p>
           </div>
-          <ul class="list-disc pl-5 text-xs text-stone-600 space-y-1.5">
-            <li>CGPA: <strong class="text-brand-slate">8.2/10</strong></li>
-            <li>Relevant Coursework: Probability and Statistics, Optimization, Data Structures and Algorithms, Machine Learning, and Discrete Mathematics.</li>
+          <div class="text-right text-stone-600 shrink-0">
+            <p>New Delhi, India</p>
+            <p>Expected 2028</p>
+          </div>
+        </div>
+        <ul class="cv-list mt-2">
+          <li><strong>CGPA:</strong> 8.2/10. <strong>Honors:</strong> EACL 2026 Student Research Workshop Mentorship; ACL/NLP4DH 2026 Presenter (San Diego, USA).</li>
+          <li><strong>Coursework:</strong> Data Structures and Algorithms, Probability and Statistics, Optimization, Machine Learning, Discrete Mathematics.</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h3 class="cv-h">Research &amp; Systems Engineering Experience</h3>
+
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <div><p class="cv-role">Efficient LLM Inference and KV-Cache Compression</p><p class="cv-org">Independent Researcher · Remote</p></div>
+            <p class="cv-date">2026 – Present</p>
+          </div>
+          <ul class="cv-list">
+            <li>Developing a value-focused KV-cache compression framework to reduce memory footprint and latency during long-context LLM inference.</li>
+            <li>Investigating adaptive low-rank representations, salient residual preservation, and compressed attention in PyTorch and Transformers.</li>
+            <li>Benchmarking quality, memory, latency, throughput, perplexity, and long-context task performance; preparing for ACL Rolling Review.</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <div><p class="cv-role">Mechanistic Interpretability of Open-Weight LLMs</p><p class="cv-org">Independent Researcher · Remote</p></div>
+            <p class="cv-date">2026 – Present</p>
+          </div>
+          <ul class="cv-list">
+            <li>Built a modular interpretability probe suite for Qwen to study attention-head specialisation and activation patterns.</li>
+            <li>Instrumented transformer forward passes with hooks to capture residual-stream activations and run activation-patching interventions.</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <div><p class="cv-role">Computational Analysis of Indus Sign Sequences</p><p class="cv-org">Independent Undergraduate Researcher · New Delhi</p></div>
+            <p class="cv-date">2025 – 2026</p>
+          </div>
+          <ul class="cv-list">
+            <li>Built and harmonised a corpus of 6,000+ Indus inscriptions for statistical and neural sequence analysis.</li>
+            <li>Studied conditional entropy, PMI, positional regularity, directional asymmetry, HMM structure, and BiLSTM next-token prediction.</li>
+            <li>Designed reversal and perturbation controls; published and presented at NLP4DH 2026 (co-located with ACL 2026) in San Diego.</li>
+          </ul>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <div><p class="cv-role">Mixed-State Quantum Machine Learning and Trainability</p><p class="cv-org">Independent Researcher · Remote</p></div>
+            <p class="cv-date">2026 – Present</p>
+          </div>
+          <ul class="cv-list">
+            <li>Built mixed-state PyTorch and PennyLane experiments using amplitude damping and non-unitary operations.</li>
+            <li>Measured gradient variance across circuit depths and noise settings to study parameterized quantum-circuit trainability and barren-plateau behaviour.</li>
           </ul>
         </div>
       </section>
 
-      <!-- Research Experience -->
-      <section class="space-y-6">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-rust border-b border-brand-border/20 pb-1">Research Experience</h3>
-        
-        <div class="space-y-5 text-xs">
-          <!-- Research 1 -->
-          <div class="space-y-2">
-            <div class="flex justify-between items-start text-sm">
-              <div>
-                <span class="font-semibold text-brand-slate block">Efficient LLM Inference and KV-Cache Compression</span>
-                <span class="text-xs text-stone-500 italic block">Independent Researcher</span>
-              </div>
-              <div class="text-right">
-                <span class="text-xs text-brand-muted font-semibold block">Remote</span>
-                <span class="text-xs text-brand-rust font-semibold block">2026 – Present</span>
-              </div>
-            </div>
-            <ul class="list-disc pl-5 text-xs text-stone-600 space-y-1.5">
-              <li>Developing a value-focused KV-cache compression framework for reducing memory use during long-context autoregressive inference.</li>
-              <li>Investigating adaptive low-rank representations, salient residual preservation, and compressed attention computation using PyTorch and Hugging Face Transformers.</li>
-              <li>Designing evaluations covering model quality, memory usage, latency, throughput, perplexity, and long-context task performance.</li>
-              <li>Preparing the work for submission through ACL Rolling Review.</li>
-            </ul>
-          </div>
-
-          <!-- Research 2 -->
-          <div class="space-y-2">
-            <div class="flex justify-between items-start text-sm">
-              <div>
-                <span class="font-semibold text-brand-slate block">Computational Analysis of Indus Sign Sequences</span>
-                <span class="text-xs text-stone-500 italic block">Independent Undergraduate Researcher</span>
-              </div>
-              <div class="text-right">
-                <span class="text-xs text-brand-muted font-semibold block">New Delhi, India</span>
-                <span class="text-xs text-brand-rust font-semibold block">2025 – 2026</span>
-              </div>
-            </div>
-            <ul class="list-disc pl-5 text-xs text-stone-600 space-y-1.5">
-              <li>Built and harmonized a corpus of more than 6,000 Indus inscriptions for statistical and neural sequence analysis.</li>
-              <li>Studied conditional entropy, PMI, positional regularity, directional asymmetry, HMM structure, and BiLSTM next-token prediction.</li>
-              <li>Designed sequence-reversal and perturbation experiments to test whether observed ordering constraints could be explained by chance or simple frequency effects.</li>
-              <li>Published and presented the resulting work at NLP4DH 2026, co-located with ACL 2026, in San Diego.</li>
-            </ul>
-          </div>
-
-          <!-- Research 3 -->
-          <div class="space-y-2">
-            <div class="flex justify-between items-start text-sm">
-              <div>
-                <span class="font-semibold text-brand-slate block">Quantum Machine Learning and Circuit Trainability</span>
-                <span class="text-xs text-stone-500 italic block">Independent Researcher</span>
-              </div>
-              <div class="text-right">
-                <span class="text-xs text-brand-muted font-semibold block">Remote</span>
-                <span class="text-xs text-brand-rust font-semibold block">2026 – Present</span>
-              </div>
-            </div>
-            <ul class="list-disc pl-5 text-xs text-stone-600 space-y-1.5">
-              <li>Built mixed-state PyTorch and PennyLane experiments using amplitude damping and non-unitary operations.</li>
-              <li>Measured gradient variance across circuit depths and noise settings to study parameterized quantum-circuit trainability and barren-plateau behaviour.</li>
-            </ul>
-          </div>
-        </div>
+      <section class="mb-8">
+        <h3 class="cv-h">Publications &amp; Presentations</h3>
+        <ul class="cv-list">
+          <li><strong>Tiwari, T.</strong> (2026). <em>Statistical Structure in Indus Sign Sequences.</em> Proceedings of NLP4DH 2026, co-located with ACL 2026. Presented in San Diego, USA. <a href="https://aclanthology.org/2026.nlp4dh-1.28/" target="_blank" rel="noopener noreferrer">ACL Anthology</a></li>
+          <li><strong>Tiwari, T.</strong> (2025). <em>An Empirical Refutation of Yajnadevam’s Devanagari-Based Decipherment of the Indus Script.</em> Independent research article. <a href="https://www.academia.edu/129821471/Empirical_Refutation_of_Yajnadevams_Devanagari_Based_Decipherment_of_the_Indus_Script" target="_blank" rel="noopener noreferrer">Academia.edu</a></li>
+          <li><strong>Tiwari, T.</strong> (2025). <em>Reading the Indus Anew.</em> Invited research lecture, Roja Muthiah Research Library, Chennai, India.</li>
+        </ul>
       </section>
 
-      <!-- Publications and Presentations -->
-      <section class="space-y-4">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-rust border-b border-brand-border/20 pb-1">Publications & Presentations</h3>
-        
-        <div class="space-y-4 text-xs">
-          <!-- Pub 1 -->
-          <div class="space-y-1">
-            <div class="flex justify-between items-start">
-              <span class="font-semibold text-brand-slate text-sm">Statistical Structure in Indus Sign Sequences</span>
-              <span class="text-brand-muted font-medium">2026</span>
-            </div>
-            <p class="text-stone-600">
-              <strong>Tiwari, T.</strong> <span class="italic text-stone-500">Proceedings of NLP4DH 2026</span>, co-located with ACL 2026. Presented in person in San Diego, USA. 
-              [<a href="https://aclanthology.org/2026.nlp4dh-1.28/" target="_blank" rel="noopener noreferrer" class="text-brand-rust hover:underline">ACL Anthology</a>]
-            </p>
-          </div>
-
-          <!-- Pub 2 -->
-          <div class="space-y-1">
-            <div class="flex justify-between items-start">
-              <span class="font-semibold text-brand-slate text-sm">An Empirical Refutation of Yajnadevam’s Devanagari-Based Decipherment of the Indus Script</span>
-              <span class="text-brand-muted font-medium">2025</span>
-            </div>
-            <p class="text-stone-600">
-              <strong>Tiwari, T.</strong> Independent research article. 
-              [<a href="https://www.academia.edu/129821471/Empirical_Refutation_of_Yajnadevams_Devanagari_Based_Decipherment_of_the_Indus_Script" target="_blank" rel="noopener noreferrer" class="text-brand-rust hover:underline">Article</a>]
-            </p>
-          </div>
-
-          <!-- Talk 1 -->
-          <div class="space-y-1">
-            <div class="flex justify-between items-start">
-              <span class="font-semibold text-brand-slate text-sm">Reading the Indus Anew</span>
-              <span class="text-brand-muted font-medium">2025</span>
-            </div>
-            <p class="text-stone-600">
-              Invited research lecture delivered at the Roja Muthiah Research Library, Chennai, India.
-            </p>
-          </div>
-        </div>
+      <section class="mb-8">
+        <h3 class="cv-h">Selected Recognition</h3>
+        <ul class="cv-list">
+          <li><strong>Peer-Reviewed International Research Presentation (2026):</strong> Presented “Statistical Structure in Indus Sign Sequences” at NLP4DH 2026, co-located with ACL 2026, in San Diego, USA.</li>
+          <li><strong>EACL Student Research Workshop Mentorship (2026):</strong> Selected for the EACL 2026 SRW pre-submission mentorship programme.</li>
+          <li><strong>Invited Research Lecture (2025):</strong> Invited to present “Reading the Indus Anew” at the Roja Muthiah Research Library, Chennai.</li>
+        </ul>
       </section>
 
-      <!-- Selected Recognition -->
-      <section class="space-y-4">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-rust border-b border-brand-border/20 pb-1">Selected Recognition</h3>
-        
-        <div class="space-y-3 text-xs text-stone-600">
-          <div class="space-y-0.5">
-            <div class="flex justify-between items-start">
-              <span class="font-semibold text-brand-slate">Peer-Reviewed International Research Presentation</span>
-              <span class="text-brand-muted font-medium">2026</span>
-            </div>
-            <p>Presented “Statistical Structure in Indus Sign Sequences” at NLP4DH 2026, co-located with ACL 2026, in San Diego, USA.</p>
-          </div>
-
-          <div class="space-y-0.5">
-            <div class="flex justify-between items-start">
-              <span class="font-semibold text-brand-slate">EACL Student Research Workshop Mentorship</span>
-              <span class="text-brand-muted font-medium">2026</span>
-            </div>
-            <p>Selected for the EACL 2026 Student Research Workshop pre-submission mentorship programme.</p>
-          </div>
-
-          <div class="space-y-0.5">
-            <div class="flex justify-between items-start">
-              <span class="font-semibold text-brand-slate">Invited Research Lecture</span>
-              <span class="text-brand-muted font-medium">2025</span>
-            </div>
-            <p>Invited to present “Reading the Indus Anew” at the Roja Muthiah Research Library in Chennai.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Technical Skills Section -->
-      <section class="space-y-4">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-rust border-b border-brand-border/20 pb-1">Technical Skills</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-xs text-stone-600">
-          <div class="space-y-1">
-            <p class="font-semibold text-brand-slate">Programming</p>
-            <p>Python, C++</p>
-          </div>
-          <div class="space-y-1">
-            <p class="font-semibold text-brand-slate">Machine Learning / NLP</p>
-            <p>PyTorch, Hugging Face Transformers, scikit-learn, XGBoost</p>
-          </div>
-          <div class="space-y-1">
-            <p class="font-semibold text-brand-slate">Scientific Computing</p>
-            <p>NumPy, pandas, SciPy, Optuna</p>
-          </div>
-          <div class="space-y-1">
-            <p class="font-semibold text-brand-slate">Tools</p>
-            <p>Git, Linux, LaTeX, Streamlit, PennyLane</p>
-          </div>
-          <div class="sm:col-span-2 space-y-1">
-            <p class="font-semibold text-brand-slate">Research Areas</p>
-            <p>Efficient LLM inference, KV-cache compression, sequence modelling, statistical NLP, and low-resource language processing</p>
-          </div>
+      <section>
+        <h3 class="cv-h">Technical Skills</h3>
+        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm" style="color:#333;">
+          <p><strong style="color:#16202a;">Programming:</strong> Python, C++, Go, SQL, Bash</p>
+          <p><strong style="color:#16202a;">ML / NLP:</strong> PyTorch, Hugging Face Transformers, scikit-learn, XGBoost</p>
+          <p><strong style="color:#16202a;">Scientific:</strong> NumPy, pandas, SciPy, Optuna, PennyLane</p>
+          <p><strong style="color:#16202a;">Tools:</strong> Git, Linux, Docker, REST APIs, Streamlit, LaTeX</p>
+          <p class="sm:col-span-2"><strong style="color:#16202a;">Research areas:</strong> Efficient LLM inference, KV-cache compression, mechanistic interpretability, sequence modelling, statistical NLP, low-resource language processing</p>
         </div>
       </section>
     </article>
   </div>
 </Layout>
+
+<style>
+  .cv-h {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9c422c;
+    border-bottom: 1px solid #d9cdc7;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .cv-entry { margin-bottom: 1.25rem; }
+  .cv-entry-head { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.35rem; }
+  .cv-role { font-weight: 600; font-size: 0.92rem; color: #16202a; }
+  .cv-org { font-size: 0.78rem; color: #666; font-style: italic; }
+  .cv-date { font-size: 0.75rem; color: #666; white-space: nowrap; text-align: right; }
+  .cv-list { list-style: disc; padding-left: 1.2rem; font-size: 0.82rem; color: #333; line-height: 1.65; }
+  .cv-list li + li { margin-top: 0.3rem; }
+  .cv-list a { color: #9c422c; text-decoration: underline; text-underline-offset: 2px; }
+  @media print {
+    .paper-surface { border: none !important; padding: 0 !important; max-width: none !important; }
+  }
+</style>

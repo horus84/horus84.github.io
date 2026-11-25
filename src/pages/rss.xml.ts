@@ -27,7 +27,7 @@ export async function GET(context: any) {
   return rss({
     title: 'Tanishk Tiwari | Research & Academic Updates',
     description: 'Researching structure, memory and meaning in intelligent systems.',
-    site: context.site || 'https://tanishktiwari.github.io',
+    site: context.site || 'https://horus84.github.io',
     items: items,
     customData: `<language>en-us</language>`,
   });

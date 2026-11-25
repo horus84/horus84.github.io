@@ -1,0 +1,9 @@
+{
+  "title": "Mixed-State QML Trainability",
+  "description": "Exploratory experiments on variational quantum circuit trainability under realistic noise. Uses PennyLane and PyTorch to measure gradient variance across circuit depths, amplitude-damping channels, and non-unitary operations, probing barren-plateau behaviour in mixed-state setups.",
+  "status": "Exploratory / In Progress",
+  "codeLink": "https://github.com/horus84",
+  "tags": ["PennyLane", "PyTorch", "Quantum ML", "Barren Plateaus", "NumPy"],
+  "featured": false,
+  "track": "other"
+}

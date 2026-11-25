@@ -19,54 +19,20 @@ const { talk } = Astro.props;
 const { title, venue, location, date, summary, slidesLink, videoLink } = talk.data;
 ---
 
-<div class="py-6 border-b border-brand-border/40 last:border-b-0 group">
-  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-    <div class="space-y-2 flex-grow">
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold tracking-wider text-brand-rust/85 uppercase">
-        <span>{date}</span>
-        <span>•</span>
-        <span>{venue}</span>
-        <span>•</span>
-        <span class="text-brand-muted normal-case font-medium">{location}</span>
-      </div>
-
-      <h3 class="text-lg font-bold text-brand-slate font-lora group-hover:text-brand-rust transition-colors duration-150">
-        {title}
-      </h3>
-
-      <p class="text-sm text-stone-600 leading-relaxed max-w-3xl">
-        {summary}
-      </p>
+<article class="paper-row">
+  <div class="min-w-0">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+      <span class="label label-acid">{date}</span>
+      <span class="label">{venue}</span>
+      <span class="label">{location}</span>
     </div>
 
-    <!-- Actions -->
-    <div class="flex md:flex-col gap-2 min-w-[100px] shrink-0 text-xs no-print">
-      {slidesLink && (
-        <a
-          href={slidesLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-center px-3 py-1.5 border border-brand-border bg-white text-stone-700 hover:border-brand-rust hover:text-brand-rust hover:bg-brand-rust/5 font-semibold rounded transition-all duration-150 shadow-sm flex items-center justify-center gap-1.5"
-        >
-          <span>Slides</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-          </svg>
-        </a>
-      )}
-      {videoLink && (
-        <a
-          href={videoLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-center px-3 py-1.5 border border-brand-border bg-white text-stone-700 hover:border-brand-rust hover:text-brand-rust hover:bg-brand-rust/5 font-semibold rounded transition-all duration-150 shadow-sm flex items-center justify-center gap-1.5"
-        >
-          <span>Video</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-          </svg>
-        </a>
-      )}
-    </div>
+    <h3 class="text-xl md:text-2xl font-semibold tracking-tight leading-snug">{title}</h3>
+    <p class="text-sm text-dim mt-3 leading-relaxed max-w-3xl">{summary}</p>
   </div>
-</div>
+
+  <div class="flex md:flex-col gap-3 md:items-end shrink-0 no-print">
+    {slidesLink && <a href={slidesLink} target="_blank" rel="noopener noreferrer" class="text-link">Slides <span aria-hidden="true">↗</span></a>}
+    {videoLink && <a href={videoLink} target="_blank" rel="noopener noreferrer" class="text-link">Video <span aria-hidden="true">↗</span></a>}
+  </div>
+</article>

@@ -1,0 +1,9 @@
+{
+  "title": "Qwen Activation Probe Suite",
+  "description": "A modular interpretability toolkit for open-weight Qwen models. Instruments transformer forward passes with hooks to capture residual-stream activations, inspect attention-head specialisation, and run activation-patching interventions for mechanistic analysis of reasoning behaviour.",
+  "status": "In Progress",
+  "codeLink": "https://github.com/horus84",
+  "tags": ["PyTorch", "Transformers", "Mechanistic Interpretability", "Activation Patching", "Qwen"],
+  "featured": true,
+  "track": "llm"
+}

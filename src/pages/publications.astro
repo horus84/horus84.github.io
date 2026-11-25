@@ -4,34 +4,28 @@ import Layout from '../layouts/Layout.astro';
 import PublicationCard from '../components/PublicationCard.astro';
 
 const publications = await getCollection('publications');
-
-// Sort by year desc, then rank in-progress first or published first? Chronological is best: year desc
-const sortedPublications = publications.sort((a, b) => {
-  // Sort in-progress to the top, then by year
+const sorted = publications.sort((a, b) => {
   if (a.data.status === 'in-progress' && b.data.status !== 'in-progress') return -1;
   if (a.data.status !== 'in-progress' && b.data.status === 'in-progress') return 1;
   return b.data.year - a.data.year;
 });
 ---
 
-<Layout 
-  title="Publications | Tanishk Tiwari" 
-  description="Academic publications and research articles by Tanishk Tiwari on LLM inference optimization, Indus script statistical structures, and computational epigraphy."
+<Layout
+  title="Publications | Tanishk Tiwari"
+  description="Publications and research writing by Tanishk Tiwari on LLM inference, Indus script statistical structure, and computational epigraphy."
 >
-  <div class="space-y-8">
-    <!-- Header -->
-    <div class="border-b border-brand-border/40 pb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+  <div class="shell section">
+    <div class="section-head reveal">
       <div>
-        <h1 class="text-3xl font-extrabold text-brand-slate font-lora">Academic Output</h1>
-        <p class="text-sm text-brand-muted mt-1">Peer-reviewed publications, preprints, and research works in progress.</p>
+        <span class="section-num">WRITING</span>
+        <h1 class="display-lg">Papers &amp; <span class="serif text-acid">publications.</span></h1>
       </div>
+      <p class="label max-w-[22rem]">Peer-reviewed work, preprints, and research in progress.</p>
     </div>
 
-    <!-- Publications List -->
-    <div class="space-y-2">
-      {sortedPublications.map(pub => (
-        <PublicationCard publication={pub} />
-      ))}
+    <div class="reveal">
+      {sorted.map((pub) => <PublicationCard publication={pub} />)}
     </div>
   </div>
 </Layout>

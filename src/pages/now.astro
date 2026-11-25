@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Now | Tanishk Tiwari"
+  description="What Tanishk Tiwari is building, reading, and investigating right now — active research, works in progress, and current interests."
+>
+  <div class="shell section">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-num">NOW</span>
+        <h1 class="display-lg">What I'm working on <span class="serif text-acid">now.</span></h1>
+      </div>
+      <p class="label max-w-[22rem]">A living snapshot — updated as the work moves.</p>
+    </div>
+
+    <div class="grid gap-12 lg:grid-cols-[1fr_320px]">
+      <div class="space-y-0">
+        <div class="fieldnote reveal">
+          <span class="label label-acid">ACTIVE</span>
+          <div>
+            <h2 class="text-xl font-semibold">Value-focused KV-cache compression</h2>
+            <p class="text-sm text-dim mt-2 leading-relaxed">
+              Building a framework that reduces memory footprint and latency during long-context LLM inference.
+              Current work: adaptive low-rank representations, salient residual preservation, and compressed attention
+              computation in PyTorch and Hugging Face Transformers. Designing evaluations across model quality, VRAM,
+              latency, throughput, perplexity, and long-context tasks. Targeting ACL Rolling Review.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">Long-context</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fieldnote reveal">
+          <span class="label label-acid">ACTIVE</span>
+          <div>
+            <h2 class="text-xl font-semibold">Qwen activation probe suite</h2>
+            <p class="text-sm text-dim mt-2 leading-relaxed">
+              Developing a modular mechanistic-interpretability toolkit for open-weight Qwen models. Instrumenting
+              forward passes with hooks to capture residual-stream activations, study attention-head specialisation,
+              and run activation-patching interventions to understand reasoning behaviour.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="tag">Mech Interp</span><span class="tag">Qwen</span><span class="tag">Activation Patching</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fieldnote reveal">
+          <span class="label label-ember">EXPLORING</span>
+          <div>
+            <h2 class="text-xl font-semibold">Mixed-state QML trainability</h2>
+            <p class="text-sm text-dim mt-2 leading-relaxed">
+              Running mixed-state PennyLane experiments with amplitude damping and non-unitary operations.
+              Measuring gradient variance across circuit depths and noise settings to understand parameterized
+              quantum-circuit trainability and barren-plateau behaviour.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="tag">PennyLane</span><span class="tag">PyTorch</span><span class="tag">Barren Plateaus</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fieldnote reveal">
+          <span class="label">SHIPPED</span>
+          <div>
+            <h2 class="text-xl font-semibold">Statistical Structure in Indus Sign Sequences</h2>
+            <p class="text-sm text-dim mt-2 leading-relaxed">
+              Published in NLP4DH 2026 (co-located with ACL 2026) and presented in person in San Diego.
+              Corpus of 6,000+ inscriptions, conditional entropy, PMI, HMM structure, BiLSTM prediction,
+              and reversal/perturbation controls.
+            </p>
+            <a href="https://aclanthology.org/2026.nlp4dh-1.28/" target="_blank" rel="noopener noreferrer" class="text-link mt-3">
+              Read on ACL Anthology <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="space-y-6 reveal">
+        <div class="panel p-6">
+          <p class="label label-acid mb-4">Current focus</p>
+          <p class="text-sm text-dim leading-relaxed">
+            Making long-context inference cheaper without throwing away the signal that matters — and building
+            the interpretability tooling to understand what the model is doing with that context.
+          </p>
+        </div>
+
+        <div class="panel p-6">
+          <p class="label mb-4">Also</p>
+          <ul class="space-y-3 text-sm text-dim">
+            <li class="flex gap-3"><span class="text-acid font-mono text-xs mt-0.5">→</span><span>B.Tech AI &amp; ML at DSEU, expected 2028</span></li>
+            <li class="flex gap-3"><span class="text-acid font-mono text-xs mt-0.5">→</span><span>Open to research internships and collaborations</span></li>
+            <li class="flex gap-3"><span class="text-acid font-mono text-xs mt-0.5">→</span><span>Based in New Delhi, India</span></li>
+          </ul>
+        </div>
+
+        <div class="panel p-6">
+          <p class="label mb-4">Contact</p>
+          <a href="mailto:t.high1945@gmail.com" class="text-link">t.high1945@gmail.com <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Layout>
